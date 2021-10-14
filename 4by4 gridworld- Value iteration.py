@@ -1,6 +1,7 @@
-#Reinforcement Learning solving a simple 4*4 Gridworld using Value iteration method
-#WRITTEN BY MOHAMMAD ASADOLAHI
-#Mohamad.asa1994@gmail.com
+# Reinforcement Learning solving a simple 4*4 Gridworld using Value iteration method
+# WRITTEN BY MOHAMMAD ASADOLAHI
+# Mohammad.E.Asadolahi@gmail.com
+# https://github.com/mohammadAsadolahi
 
 import numpy as np
 
