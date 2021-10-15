@@ -60,8 +60,9 @@ then we start using value iteration to update this policy value and as well as p
   
   
   --------------------------------  
- step:0  
-   
+ step:0   
+   --------------------------------  
+   Value Table:
  | 5.5000000000000016e-05 |  | 0.0005500000000000001 |  | 5.5000000000000016e-05 |  | -1.945 |   
   
  | 5.5000000000000016e-06 |  | 5.5000000000000016e-05 |  | -1.945 |  | 0.55 |   
@@ -71,7 +72,8 @@ then we start using value iteration to update this policy value and as well as p
  | -9.945 |  | 0.55 |  | 5.5 |  | 5 |   
 
   
-  
+ ##########################  
+ Policy:  
  | R |  | L |  | L |  | D |   
    
  | U |  | U |  | D |  | D |   
