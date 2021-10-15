@@ -55,7 +55,7 @@ and we initialize value table like:
  | 0 |  | 0 |  | 0 |  | 5 |   
 ---------------------------  
   
-then we start using value iteration to update this policy value and as well as policy till convergence of policy witch will be optimal policy
+then we start using value iteration to update this policy value and as well as policy till convergence of policy witch will be optimal policy  
   sample outputs:
   
   
