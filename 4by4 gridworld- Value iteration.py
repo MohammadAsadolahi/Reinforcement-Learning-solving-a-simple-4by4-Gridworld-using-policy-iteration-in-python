@@ -12,7 +12,6 @@ class GridWorld:
         # O * O O
         # O * 0 T
         self.currentState = None
-        self.qTable = None
         self.actionSpace = ('U', 'D', 'L', 'R')
         self.actions = {
             (0, 0): ('D', 'R'),
@@ -32,7 +31,6 @@ class GridWorld:
             (3, 2): ('U', 'L', 'R')
         }
         self.rewards = {(3, 3): 5, (1, 3): -2, (2, 1): -2, (3, 1): -10}
-        self.initialQtable()
         self.explored = 0
         self.exploited = 0
 
@@ -42,35 +40,10 @@ class GridWorld:
             policy[state] = np.random.choice(self.actions[state])
         return policy
 
-    def initialQtable(self):
-        self.qTable = {}
-        for state in self.actions:
-            for move in self.actions[state]:
-                reward = self.getActionReward(state, move)
-                if reward != 0:
-                    self.qTable[(state, move)] = reward
-
-    def printQtable(self):
-        print(self.qTable)
-
     def getCurrentState(self):
         if not self.currentState:
             self.currentState = (0, 0)
         return self.currentState
-
-    def printPolicy(self, policy):
-        line = ""
-        counter = 0
-        for item in policy:
-            line += f" | {policy[item]} | "
-            counter += 1
-            if counter > 3:
-                print(line)
-                print("----------------------------")
-                counter = 0
-                line = ""
-        print(line)
-        print("----------------------------")
 
     def is_terminal(self, s):
         return s not in self.actions
@@ -135,48 +108,58 @@ class GridWorld:
             return (row, column),self.rewards[(row, column)]
         return (row, column), 0
 
-
-def printVaues(values):
-    line = ""
-    counter = 0
-    for item in values:
-        line += f" | {values[item]} | "
-        counter += 1
-        if counter > 3:
-            print(line)
-            print("--------------------------------")
-            counter = 0
-            line = ""
-    print(line)
-    print("----------------------------")
-
-
+    def printVaues(self,values):
+        line = ""
+        counter = 0
+        for item in values:
+            line += f" | {values[item]} | "
+            counter += 1
+            if counter > 3:
+                print(line)
+                print("--------------------------------")
+                counter = 0
+                line = ""
+        print(line)
+        print("----------------------------")
+        
+    def printPolicy(self, policy):
+        line = ""
+        counter = 0
+        for item in policy:
+            line += f" | {policy[item]} | "
+            counter += 1
+            if counter > 3:
+                print(line)
+                print("----------------------------")
+                counter = 0
+                line = ""
+        print(line)
+        print("----------------------------")
+        
+        
+ 
 enviroment = GridWorld()
 policy = enviroment.getRandomPolicy()
-# policy = {(0, 0): 'R', (0, 1): 'R', (0, 2): 'D', (0, 3): 'D', (1, 0): 'R', (1, 1): 'D', (1, 2): 'D', (1, 3): 'D',
+#example optimal policy = {(0, 0): 'R', (0, 1): 'R', (0, 2): 'D', (0, 3): 'D', (1, 0): 'R', (1, 1): 'D', (1, 2): 'D', (1, 3): 'D',
 #           (2, 0): 'R', (2, 1): 'D', (2, 2): 'R', (2, 3): 'D', (3, 0): 'R', (3, 1): 'R', (3, 2): 'R'}
 
 enviroment.printPolicy(policy)
 state = enviroment.getCurrentState()
-minimumChange = 0.5
-enviroment.printQtable()
 values = {}
-for j in range(50):
+
+for j in range(10):
     values.clear()
     for state in policy:
         values[state] = 0
-    values[(3, 3)] = 10
+    values[(3, 3)] = 5
     for i in range(10):
         for item in enviroment.actions.keys():
-            nextState, reward = enviroment.move(item, policy, 0.01)
-            values[item] = reward + 0.5 * values[nextState]
-            # print(f"j:{j}  i:{i} state{item} move:{policy[item]} r:{reward} nextS:{nextState} ")
-            # printVaues(values)
-            # enviroment.printPolicy(policy)
+            nextState, reward = enviroment.move(item, policy, exploreRate=0.2)
+            values[item] = reward + 0.1 * values[nextState]
         for item in policy:
              policy[item] = enviroment.greedyChoose(item, values)
-        # print("arg amxing on policies...\n\n\n")
-    printVaues(values)
-    enviroment.printPolicy(policy)
-        # print("\n\n\n")
+    if (j%1)==0:
+      print(f"\n\n\n step:{j}")
+      enviroment.printVaues(values)
+      enviroment.printPolicy(policy)
 print(f"exploited:{enviroment.exploited}  explored:{enviroment.explored}")
