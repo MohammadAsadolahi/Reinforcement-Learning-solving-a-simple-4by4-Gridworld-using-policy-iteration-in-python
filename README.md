@@ -1,10 +1,10 @@
-# Reinforcement-Learning-solving-a-simple-4-4-Gridworld-using-value-iteration-method
-solving a simple 4*4 Gridworld almost similar to openAI gym frozenlake using value iteration method Reinforcement Learning  
+# Reinforcement-Learning-solving-a-simple-4-4-Gridworld-using-policy-iteration-method
+solving a simple 4*4 Gridworld almost similar to openAI gym frozenlake using policy iteration method Reinforcement Learning  
 WRITTEN BY MOHAMMAD ASADOLAHI  
 Mohammad.E.Asadolahi@gmail.com  
 https://github.com/mohammadAsadolahi  
 this program is using Reinfrocement learning to solve a 4*4 gridworld like frozen lake enviroment in open ai gym  
-the method used is value iteration whitch is one of fundamental manners of Dynamic Programing  
+the method used is policy iteration whitch is one of fundamental manners of Dynamic Programing  
   
 -----------------  
 | S | O | O | O |  
