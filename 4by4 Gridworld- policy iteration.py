@@ -27,7 +27,7 @@ class GridWorld:
             (3, 1): ('U', 'L', 'R'),
             (3, 2): ('U', 'L', 'R')
         }
-        self.rewards = {(3, 3): 5, (1, 3): -2, (2, 1): -2, (3, 1): -2}
+        self.rewards = {(3, 3): 0.03, (1, 3): -0.01, (2, 1):-0.01, (3, 1):-0.01}
         self.explored = 0
         self.exploited = 0
 
@@ -107,9 +107,7 @@ class GridWorld:
                 line = ""
         print(line)
         print("----------------------------")
-        
-        
-        
+
 enviroment = GridWorld()
 policy = enviroment.getRandomPolicy()
 # enviroment.printPolicy(policy)
@@ -117,22 +115,24 @@ policy = enviroment.getRandomPolicy()
 #example optimal policy = {(0, 0): 'R', (0, 1): 'R', (0, 2): 'D', (0, 3): 'D', (1, 0): 'R', (1, 1): 'D', (1, 2): 'D', (1, 3): 'D',
 #           (2, 0): 'R', (2, 1): 'D', (2, 2): 'R', (2, 3): 'D', (3, 0): 'R', (3, 1): 'R', (3, 2): 'R'}
 
-for i in range(10):
+for i in range(1001):
   values = {}
   for state in policy:
       values[state] = 0
   values[(3, 3)] = 5
 
-  for j in range(10):
+  for j in range(1000):
     state = enviroment.reset()
-    while not enviroment.is_terminal(state):# and can add for example terminal condition after 20steps
+    stepCounts=0
+    while (not enviroment.is_terminal(state)) and (stepCounts<50):
       nextState, reward = enviroment.move(state, policy, exploreRate=0.05)
       values[state] = reward + 0.1 * values[nextState]
       state=nextState
+      stepCounts+=1
   for item in policy:
         policy[item] = enviroment.greedyChoose(item, values)
   
-  if (i%1)==0:
+  if (i%100)==0:
     print(f"\n\n\n step:{i}")
     # enviroment.printVaues(values)
     enviroment.printPolicy(policy)
