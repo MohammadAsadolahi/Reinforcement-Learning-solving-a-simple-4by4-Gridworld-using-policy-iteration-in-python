@@ -1,7 +1,4 @@
 # Reinforcement Learning solving a simple 4*4 Gridworld using policy iteration method
-# WRITTEN BY MOHAMMAD ASADOLAHI
-# Mohammad.E.Asadolahi@gmail.com
-# https://github.com/mohammadAsadolahi
 import numpy as np
 class GridWorld:
     def __init__(self):
