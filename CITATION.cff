@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software in your research, please cite it as below."
+authors:
+  - family-names: "Ghorbani"
+    given-names: "A."
+    affiliation: "Google — Office of the Chief AI Officer"
+title: "Policy Iteration on a 4×4 Gridworld — A Reference Implementation"
+version: 1.0.0
+date-released: 2026-04-28
+url: "https://github.com/AliGhorbani97/Reinforcement-Learning-solving-a-simple-\
+  4by4-Gridworld-using-policy-iteration-in-python"
+license: MIT
+keywords:
+  - reinforcement-learning
+  - policy-iteration
+  - dynamic-programming
+  - gridworld
+  - bellman-equation
