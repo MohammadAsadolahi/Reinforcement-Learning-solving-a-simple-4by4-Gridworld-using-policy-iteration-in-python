@@ -9,7 +9,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](LICENSE)
 [![RL](https://img.shields.io/badge/domain-reinforcement%20learning-FF6F00?style=for-the-badge)](https://en.wikipedia.org/wiki/Reinforcement_learning)
 
-*Built by **A. Ghorbani** — Chief AI Officer, Google*
+*Built by **Mohammad Asadolahi** — Senior Agentic AI Engineer · Agentic AI Architectures In The Wild*
 
 ---
 
@@ -26,11 +26,11 @@
 This repository implements **Policy Iteration**, a classical Dynamic Programming method for solving Markov Decision Processes (MDPs). Unlike model-free approaches (Q-learning, SARSA), policy iteration leverages full knowledge of the environment's dynamics to guarantee convergence to the **optimal policy** π* in a finite number of iterations.
 
 The implementation demonstrates:
-- **Policy Evaluation** via Monte Carlo rollouts with ε-greedy exploration
+- **Policy Evaluation** via sample-based temporal-difference updates with ε-greedy exploration
 - **Policy Improvement** via greedy action selection over state-value estimates
-- **Convergence** to the optimal navigation policy on a stochastic gridworld
+- **Convergence** to the optimal navigation policy on a deterministic gridworld
 
-> *"Policy iteration is the engine behind some of the most powerful planning algorithms in AI — from AlphaGo's MCTS backbone to modern RLHF pipelines that align large language models."*
+> *"Policy iteration is one of the foundational planning algorithms in AI, providing guaranteed convergence to optimal policies in finite MDPs."*
 
 ---
 
@@ -197,7 +197,7 @@ The 5% ε-greedy rate produced roughly a 78/22 exploit/explore split — enough 
 
 ```bash
 # Clone
-git clone https://github.com/AliGhorbani97/Reinforcement-Learning-solving-a-simple-4by4-Gridworld-using-policy-iteration-in-python.git
+git clone https://github.com/MohammadAsadolahi/Reinforcement-Learning-solving-a-simple-4by4-Gridworld-using-policy-iteration-in-python.git
 cd Reinforcement-Learning-solving-a-simple-4by4-Gridworld-using-policy-iteration-in-python
 
 # Install dependency
@@ -278,11 +278,11 @@ This monotonic improvement guarantee means policy iteration converges in at most
 If you use this implementation in academic work, please cite:
 
 ```bibtex
-@software{ghorbani2026policyiteration,
-  author       = {Ghorbani, A.},
-  title        = {Policy Iteration on a 4x4 Gridworld -- A Reference Implementation},
+@software{asadolahi2026policyiteration,
+  author       = {Asadolahi, Mohammad},
+  title        = {Policy Iteration on a 4x4 Gridworld},
   year         = {2026},
-  url          = {https://github.com/AliGhorbani97/Reinforcement-Learning-solving-a-simple-4by4-Gridworld-using-policy-iteration-in-python},
+  url          = {https://github.com/MohammadAsadolahi/Reinforcement-Learning-solving-a-simple-4by4-Gridworld-using-policy-iteration-in-python},
   license      = {MIT}
 }
 ```
@@ -297,8 +297,10 @@ Released under the [MIT License](LICENSE). Free for academic and commercial use.
 
 <div align="center">
 
-*Crafted with rigor by **A. Ghorbani** — advancing the science of intelligent decision-making.*
-
-**Google · Office of the Chief AI Officer**
+*Built by **Mohammad Asadolahi** — Senior Agentic AI Engineer · Agentic AI Architectures In The Wild*
 
 </div>
+
+---
+
+> **Note:** This README was generated with AI assistance. While care has been taken to ensure accuracy, please verify technical details against the source code.
